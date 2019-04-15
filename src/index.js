@@ -11,9 +11,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 60vw;
-
-  font-family: "Prata", serif;
+  width: 100%;
 `;
 
 const Gradient = keyframes`
@@ -27,27 +25,27 @@ const Gradient = keyframes`
 		background-position: 0% 50%
 	}
 `;
+
 const Underline = styled.span`
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 20%;
-  animation: ${Gradient} 5s ease-in-out infinite;
+  background-size: 400% 0.3em;
+  background-position: 0 20%;
+  animation: ${Gradient} 7s ease infinite;
 
-  /* background-size: 100% 0.3em; */
-  background-position: 0 80%;
-  transition: background-size 0.25s ease-in-out;
+  font-family: "Prata", serif;
+  font-weight: normal;
+
+  color: white;
 `;
 
 function App() {
   return (
-    <div className="App">
-      <Container>
-        <Lightsaber baseColor="#ff0000" width={100} />
-        <h1>
-          <Underline>Underline Generator</Underline>
-          <sup>&copy;</sup>
-        </h1>
-      </Container>
-    </div>
+    <Container>
+      <Lightsaber baseColor="#ff0000" width={100} height={100} />
+      <h1>
+        <Underline>Underline Generator</Underline>
+      </h1>
+    </Container>
   );
 }
 
