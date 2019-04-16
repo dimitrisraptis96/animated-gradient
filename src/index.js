@@ -2,16 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Lightsaber from "./Lightsaber";
 import styled, { keyframes } from "styled-components";
+import { linearGradient } from "polished";
+1;
 
 import "./styles.css";
 
 const Container = styled.div`
+  /* padding-top: 10rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  width: 100%;
+  max-width: 100vw;
+  min-height: 100vw;
+  max-height: 100vw;
+
+  background-color: #f5f5f5;
 `;
 
 const Gradient = keyframes`
@@ -26,24 +33,44 @@ const Gradient = keyframes`
 	}
 `;
 
-const Underline = styled.span`
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 0.3em;
-  background-position: 0 20%;
-  animation: ${Gradient} 7s ease infinite;
+const Underline = styled.div`
+  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+  ${linearGradient({
+    colorStops: ["#5433FF 0%", "#20BDFF 50%", "#a5fecb 100%"],
+    toDirection: "-45deg",
+    fallback: "#ee7752"
+  })}
 
-  font-family: "Prata", serif;
-  font-weight: normal;
+  background-size: 400% 0.3em;
+  /* background-position: 0 20%; */
+  animation: ${Gradient} 10s ease infinite;
 
   color: white;
+  font-family: "Prata", serif;
+
+  line-height: 5rem;
+  /* font-weight: bold;
+   */
+`;
+
+const Copy = styled.sup`
+  font-size: 16px;
 `;
 
 function App() {
   return (
     <Container>
-      <Lightsaber baseColor="#ff0000" width={100} height={100} />
+      <Lightsaber
+        baseColor="#20BDFF"
+        // gradient={["#ee7752", "#e73c7e", "#23a6d5", "#23d5ab"]}
+        width={180}
+        height={180}
+      />
       <h1>
-        <Underline>Underline Generator</Underline>
+        <Underline>
+          &nbsp;&nbsp;Underline Generator<Copy>&nbsp;&nbsp;&copy;</Copy>
+          &nbsp;&nbsp;
+        </Underline>
       </h1>
     </Container>
   );
