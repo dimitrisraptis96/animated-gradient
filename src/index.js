@@ -18,7 +18,7 @@ const Container = styled.div`
   min-height: 100vw;
   max-height: 100vw;
 
-  background-color: #f5f5f5;
+  background-color: white;
 `;
 
 const Gradient = keyframes`
@@ -49,6 +49,8 @@ const Underline = styled.div`
   font-family: "Prata", serif;
 
   line-height: 5rem;
+
+  border-radius: 4px;
   /* font-weight: bold;
    */
 `;
@@ -63,8 +65,8 @@ function App() {
       <Lightsaber
         baseColor="#20BDFF"
         // gradient={["#ee7752", "#e73c7e", "#23a6d5", "#23d5ab"]}
-        width={180}
-        height={180}
+        width={250}
+        height={250}
       />
       <h1>
         <Underline>
